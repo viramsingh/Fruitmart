@@ -59,6 +59,7 @@ const fruits = [
     name: "Apple",
     description: "Fresh and juicy apples.",
     price: "50.00",
+    quantity: 1,
     imageUrl: AppleIMG,
   },
   {
@@ -66,6 +67,7 @@ const fruits = [
     name: "Banana",
     description: "Sweet and ripe bananas.",
     price: "30.00",
+    quantity: 1,
     imageUrl: BananaIMG,
   },
   {
@@ -73,6 +75,7 @@ const fruits = [
     name: "Orange",
     description: "Citrusy and tangy oranges.",
     price: "40.00",
+    quantity: 1,
     imageUrl: OrangeIMG,
   },
   {
@@ -80,6 +83,7 @@ const fruits = [
     name: "Mango",
     description: "Delicious and sweet mangoes.",
     price: "60.00",
+    quantity: 1,
     imageUrl: MangoIMG,
   },
   {
@@ -87,6 +91,7 @@ const fruits = [
     name: "Strawberry",
     description: "Fresh and juicy strawberries.",
     price: "100.00",
+    quantity: 1,
     imageUrl: StrawberryIMG,
   },
   {
@@ -94,6 +99,7 @@ const fruits = [
     name: "Grapes",
     description: "Fresh and tasty grapes.",
     price: "70.00",
+    quantity: 1,
     imageUrl: GrapesIMG,
   },
   {
@@ -101,6 +107,7 @@ const fruits = [
     name: "Pineapple",
     description: "Sweet and tangy pineapples.",
     price: "80.00",
+    quantity: 1,
     imageUrl: PineappleIMG,
   },
   {
@@ -108,6 +115,7 @@ const fruits = [
     name: "Watermelon",
     description: "Refreshing and hydrating watermelons.",
     price: "90.00",
+    quantity: 1,
     imageUrl: WatermelonIMG,
   },
   {
@@ -115,6 +123,7 @@ const fruits = [
     name: "Peach",
     description: "Sweet and juicy peaches.",
     price: "85.00",
+    quantity: 1,
     imageUrl: PeachIMG,
   },
   {
@@ -122,6 +131,7 @@ const fruits = [
     name: "Cherry",
     description: "Fresh and delicious cherries.",
     price: "150.00",
+    quantity: 1,
     imageUrl: CherryIMG,
   },
   {
@@ -129,6 +139,7 @@ const fruits = [
     name: "Papaya",
     description: "Tropical and sweet papayas.",
     price: "45.00",
+    quantity: 1,
     imageUrl: PapayaIMG,
   },
   {
@@ -136,6 +147,7 @@ const fruits = [
     name: "Kiwi",
     description: "Tangy and sweet kiwis.",
     price: "120.00",
+    quantity: 1,
     imageUrl: KiwiIMG,
   },
   {
@@ -143,6 +155,7 @@ const fruits = [
     name: "Pomegranate",
     description: "Rich and juicy pomegranates.",
     price: "110.00",
+    quantity: 1,
     imageUrl: PomegranateIMG,
   },
   {
@@ -150,6 +163,7 @@ const fruits = [
     name: "Blueberry",
     description: "Fresh and delicious blueberries.",
     price: "200.00",
+    quantity: 1,
     imageUrl: BlueberryIMG,
   },
   {
@@ -157,6 +171,7 @@ const fruits = [
     name: "Lemon",
     description: "Sour and tangy lemons.",
     price: "25.00",
+    quantity: 1,
     imageUrl: LemonIMG,
   },
   {
@@ -164,6 +179,7 @@ const fruits = [
     name: "Raspberry",
     description: "Sweet and tart raspberries.",
     price: "180.00",
+    quantity: 1,
     imageUrl: RaspberryIMG,
   },
   {
@@ -171,6 +187,7 @@ const fruits = [
     name: "Blackberry",
     description: "Juicy and rich blackberries.",
     price: "190.00",
+    quantity: 1,
     imageUrl: BlackberryIMG,
   },
   {
@@ -178,6 +195,7 @@ const fruits = [
     name: "Pear",
     description: "Sweet and soft pears.",
     price: "60.00",
+    quantity: 1,
     imageUrl: PearIMG,
   },
   {
@@ -185,6 +203,7 @@ const fruits = [
     name: "Plum",
     description: "Juicy and sweet plums.",
     price: "70.00",
+    quantity: 1,
     imageUrl: PlumIMG,
   },
   {
@@ -192,6 +211,7 @@ const fruits = [
     name: "Apricot",
     description: "Delicious and tangy apricots.",
     price: "80.00",
+    quantity: 1,
     imageUrl: ApricotIMG,
   },
   {
@@ -199,6 +219,7 @@ const fruits = [
     name: "Nectarine",
     description: "Sweet and juicy nectarines.",
     price: "90.00",
+    quantity: 1,
     imageUrl: NectarineIMG,
   },
   {
@@ -206,6 +227,7 @@ const fruits = [
     name: "Guava",
     description: "Tropical and sweet guavas.",
     price: "55.00",
+    quantity: 1,
     imageUrl: GuavaIMG,
   },
   {
@@ -213,6 +235,7 @@ const fruits = [
     name: "Lychee",
     description: "Exotic and sweet lychees.",
     price: "130.00",
+    quantity: 1,
     imageUrl: LycheeIMG,
   },
   {
@@ -220,6 +243,7 @@ const fruits = [
     name: "Fig",
     description: "Sweet and delicious figs.",
     price: "140.00",
+    quantity: 1,
     imageUrl: FigIMG,
   },
   {
@@ -227,6 +251,7 @@ const fruits = [
     name: "Coconut",
     description: "Nutty and refreshing coconuts.",
     price: "75.00",
+    quantity: 1,
     imageUrl: CoconutIMG,
   },
   {
@@ -234,6 +259,7 @@ const fruits = [
     name: "Melon",
     description: "Sweet and refreshing melons.",
     price: "65.00",
+    quantity: 1,
     imageUrl: MelonIMG,
   },
 
@@ -242,6 +268,7 @@ const fruits = [
     name: "Dragon Fruit",
     description: "Exotic and sweet dragon fruits.",
     price: "150.00",
+    quantity: 1,
     imageUrl: DragonIMG,
   },
 
@@ -250,63 +277,72 @@ const fruits = [
     name: "Jackfruit",
     description: "Tropical and sweet jackfruits.",
     price: "95.00",
-    imageUrl: JackfruitIMG, // Using imported image
+    quantity: 1,
+    imageUrl: JackfruitIMG,
   },
   {
     id: 29,
     name: "Passion Fruit",
     description: "Tart and sweet passion fruits.",
     price: "100.00",
-    imageUrl: PassionFruitIMG, // Using imported image
+    quantity: 1,
+    imageUrl: PassionFruitIMG,
   },
   {
     id: 30,
     name: "Custard Apple",
     description: "Sweet and creamy custard apples.",
     price: "85.00",
-    imageUrl: CustardAppleIMG, // Using imported image
+    quantity: 1,
+    imageUrl: CustardAppleIMG,
   },
   {
     id: 31,
     name: "Cranberry",
     description: "Tangy and refreshing cranberries.",
     price: "175.00",
-    imageUrl: CranberryIMG, // Using imported image
+    quantity: 1,
+    imageUrl: CranberryIMG,
   },
   {
     id: 32,
     name: "Tamarind",
     description: "Tangy and flavorful tamarinds.",
     price: "35.00",
-    imageUrl: TamarindIMG, // Using imported image
+    quantity: 1,
+    imageUrl: TamarindIMG,
   },
   {
     id: 33,
     name: "Starfruit",
     description: "Exotic and sweet starfruits.",
     price: "105.00",
-    imageUrl: StarfruitIMG, // Using imported image
+    quantity: 1,
+    imageUrl: StarfruitIMG,
   },
   {
     id: 34,
     name: "Pomelo",
     description: "Citrusy and sweet pomelos.",
     price: "115.00",
-    imageUrl: PomeloIMG, // Using imported image
+    quantity: 1,
+    imageUrl: PomeloIMG,
   },
   {
     id: 35,
     name: "Jujube",
     description: "Sweet and chewy jujubes.",
     price: "95.00",
-    imageUrl: JujubeIMG, // Using imported image
+    quantity: 1,
+    imageUrl: JujubeIMG,
   },
   {
     id: 36,
     name: "Longan",
     description: "Sweet and juicy longans.",
     price: "125.00",
-    imageUrl: LonganIMG, // Using imported image
+    quantity: 1,
+    imageUrl: LonganIMG,
   },
 
   {
@@ -314,6 +350,7 @@ const fruits = [
     name: "Rambutan",
     description: "Exotic and sweet rambutans.",
     price: "135.00",
+    quantity: 1,
     imageUrl: RambutanIMG,
   },
   {
@@ -321,6 +358,7 @@ const fruits = [
     name: "Mulberry",
     description: "Sweet and tart mulberries.",
     price: "160.00",
+    quantity: 1,
     imageUrl: MulberryIMG,
   },
   {
@@ -328,6 +366,7 @@ const fruits = [
     name: "Tangerine",
     description: "Sweet and citrusy tangerines.",
     price: "45.00",
+    quantity: 1,
     imageUrl: TangerineIMG,
   },
   {
@@ -335,6 +374,7 @@ const fruits = [
     name: "Cantaloupe",
     description: "Sweet and juicy cantaloupes.",
     price: "70.00",
+    quantity: 1,
     imageUrl: CantaloupeIMG,
   },
   {
@@ -342,6 +382,7 @@ const fruits = [
     name: "Durian",
     description: "Strong-flavored and creamy durians.",
     price: "200.00",
+    quantity: 1,
     imageUrl: DurianIMG,
   },
   {
@@ -349,6 +390,7 @@ const fruits = [
     name: "Persimmon",
     description: "Sweet and smooth persimmons.",
     price: "90.00",
+    quantity: 1,
     imageUrl: PersimmonIMG,
   },
   {
@@ -356,6 +398,7 @@ const fruits = [
     name: "Gooseberry",
     description: "Tangy and flavorful gooseberries.",
     price: "50.00",
+    quantity: 1,
     imageUrl: GooseberryIMG,
   },
   {
@@ -363,6 +406,7 @@ const fruits = [
     name: "Clementine",
     description: "Sweet and juicy clementines.",
     price: "55.00",
+    quantity: 1,
     imageUrl: ClementineIMG,
   },
   {
@@ -370,6 +414,7 @@ const fruits = [
     name: "Quince",
     description: "Sweet and fragrant quinces.",
     price: "140.00",
+    quantity: 1,
     imageUrl: QuinceIMG,
   },
   {
@@ -377,6 +422,7 @@ const fruits = [
     name: "Loquat",
     description: "Sweet and juicy loquats.",
     price: "120.00",
+    quantity: 1,
     imageUrl: LoquatIMG,
   },
   {
@@ -384,6 +430,7 @@ const fruits = [
     name: "Soursop",
     description: "Tangy and creamy soursops.",
     price: "145.00",
+    quantity: 1,
     imageUrl: SoursopIMG,
   },
   {
@@ -391,6 +438,7 @@ const fruits = [
     name: "Sapodilla",
     description: "Sweet and brown sapodillas.",
     price: "85.00",
+    quantity: 1,
     imageUrl: SapodillaIMG,
   },
   {
@@ -398,6 +446,7 @@ const fruits = [
     name: "Kumquat",
     description: "Sweet and sour kumquats.",
     price: "150.00",
+    quantity: 1,
     imageUrl: KumquatIMG,
   },
   {
@@ -405,6 +454,7 @@ const fruits = [
     name: "Feijoa",
     description: "Sweet and aromatic feijoas.",
     price: "130.00",
+    quantity: 1,
     imageUrl: FeijoaIMG,
   },
 ];

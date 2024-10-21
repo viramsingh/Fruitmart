@@ -1,10 +1,12 @@
 import React, { useState, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-// import Loader from "./components/Spineer/Loader";
+import PageNotFound from "./Pages/PageNotFound";
+import FruiteDetails from "./Pages/FruiteDetails";
+import Loading from "./components/Loading";
 
 // Lazy load the pages
 const Home = lazy(() => import("./pages/Home"));
@@ -15,6 +17,7 @@ const Cart = lazy(() => import("./Pages/Cart"));
 const FAQ = lazy(() => import("./Pages/faq"));
 const Register = lazy(() => import("./Pages/Ragister"));
 const Login = lazy(() => import("./Pages/Login"));
+const OrderNow = lazy(() => import("./Pages/OrderNow"));
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -24,10 +27,7 @@ const App = () => {
       <Router>
         <ScrollToTop />
         <Navbar cart={cart} />
-
-        {/* Wrap Routes with Suspense for lazy loading */}
-        <Suspense>
-          {/* Add a loader here */}
+        <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
@@ -35,6 +35,7 @@ const App = () => {
               path="/shop"
               element={<Shop cart={cart} setCart={setCart} />}
             />
+            <Route path="/fruiteDeatails/:id" element={<FruiteDetails />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route
               path="/cart"
@@ -43,6 +44,11 @@ const App = () => {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/order-now"
+              element={<OrderNow cart={cart} setCart={setCart} />}
+            />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>
 

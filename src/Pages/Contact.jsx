@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
+  const [val, setVal] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setVal((preVal) => ({
+      ...preVal,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(val);
+
+    setTimeout(() => {
+      toast.success("Your message has been successfully sent");
+    }, 2000);
+
+    setVal({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
+
   return (
     <section className="py-12 bg-gray-50">
       <div className="container px-4 mx-auto">
@@ -14,7 +46,7 @@ const ContactUs = () => {
         <div className="flex flex-col justify-between lg:flex-row">
           {/* Contact Form */}
           <div className="p-8 bg-white rounded-lg shadow-lg lg:w-2/3">
-            <form>
+            <form onSubmit={handleFormSubmit}>
               <div className="mb-6">
                 <label
                   htmlFor="name"
@@ -23,6 +55,8 @@ const ContactUs = () => {
                   Your Name
                 </label>
                 <input
+                  value={val.name}
+                  onChange={handleChange}
                   type="text"
                   id="name"
                   name="name"
@@ -40,6 +74,8 @@ const ContactUs = () => {
                   Your Email
                 </label>
                 <input
+                  value={val.email}
+                  onChange={handleChange}
                   type="email"
                   id="email"
                   name="email"
@@ -57,6 +93,8 @@ const ContactUs = () => {
                   Subject
                 </label>
                 <input
+                  value={val.subject}
+                  onChange={handleChange}
                   type="text"
                   id="subject"
                   name="subject"
@@ -74,6 +112,8 @@ const ContactUs = () => {
                   Your Message
                 </label>
                 <textarea
+                  value={val.message}
+                  onChange={handleChange}
                   id="message"
                   name="message"
                   rows="5"

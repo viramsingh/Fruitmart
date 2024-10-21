@@ -1,9 +1,8 @@
 // ResponsiveMenu.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-// import { FaTimes } from "react-icons/fa";
 import Profile from "../Profile/Profile";
 
 const NavbarMenu = [
@@ -52,30 +51,23 @@ const ResponsiveMenu = ({ menuOpen, setMenuOpen, cartItemCount }) => {
       </div>
       <div className="flex flex-col p-4">
         {NavbarMenu.map((menu) => (
-          <Link
+          <NavLink
             key={menu.id}
             to={menu.link}
             onClick={() => setMenuOpen(false)}
-            className="py-2 text-lg font-semibold text-gray-700 hover:bg-secondary hover:text-white"
+            className={({ isActive }) =>
+              [
+                isActive
+                  ? " text-black bg-secondary px-3 py-2 font-semibold transitions-colors shadow-lg rounded-md  duration-300"
+                  : "font-semibold py-3",
+              ].join("")
+            }
           >
             {menu.title}
-          </Link>
+          </NavLink>
         ))}
-        <Link
-          to="/cart"
-          onClick={() => setMenuOpen(false)}
-          className="flex items-center py-2 mt-0 text-lg font-semibold text-gray-700 hover:bg-secondary hover:text-white"
-        >
-          <HiOutlineShoppingCart className="mr-2 text-xl" />
-          <span>Cart</span>
-          {cartItemCount > 0 && (
-            <span className="px-2 py-1 ml-2 text-sm text-white bg-red-500 rounded-full">
-              {cartItemCount > 9 ? "9+" : cartItemCount}
-            </span>
-          )}
-        </Link>
+
         <Profile />
-        {/* profile  */}
       </div>
     </div>
   );

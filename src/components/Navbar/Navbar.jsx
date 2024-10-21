@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FaLeaf } from "react-icons/fa6";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaBarsStaggered } from "react-icons/fa6";
@@ -34,12 +34,10 @@ const Navbar = ({ cart }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const cartItemCount = cart.length;
 
-  // Function to determine display text for cart item count
   const getCartItemCountDisplay = () => {
     return cartItemCount > 9 ? "9+" : cartItemCount;
   };
 
-  // const location = useLocation();
   return (
     <>
       <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -61,43 +59,36 @@ const Navbar = ({ cart }) => {
                 <li key={menu.id}>
                   <NavLink
                     to={menu.link}
-                    className={` ${
-                      location.pathname === "link" ? "active" : ""
-                    } inline-block px-3 py-1 font-semibold transition-colors duration-300 hover:text-white hover:bg-secondary hover:shadow-lg hover:rounded-md`}
+                    className={({ isActive }) =>
+                      [
+                        isActive
+                          ? " text-white bg-secondary px-3 py-2 font-semibold transitions-colors shadow-lg rounded-md  duration-300"
+                          : "font-semibold",
+                      ].join("")
+                    }
                   >
                     {menu.title}
                   </NavLink>
                 </li>
               ))}
-              {/* <Link
-                to="/cart"
-                className="relative p-2 text-2xl duration-200 rounded-full hover:bg-secondary hover:text-white"
-              >
-                <HiOutlineShoppingCart />
-                {cartItemCount > 0 && (
-                  <span className="absolute right-0 flex items-center justify-center w-8 h-8 text-black bg-red-500 rounded-full bottom-6">
-                    {getCartItemCountDisplay()}
-                  </span>
-                )} 
-              </Link> */}
 
-              <Link
-                to="/cart"
-                onClick={() => setMenuOpen(false)}
-                className="relative flex items-center mt-0 text-lg font-semibold text-gray-600 duration-200"
-              >
-                <HiOutlineShoppingCart className="ml-1 text-2xl" />
-                {cartItemCount > 0 && (
-                  <span className="absolute justify-center w-8 h-8 mt-4 ml-6 text-red-500 rounded-full bottom-2">
-                    {cartItemCount > 9 ? "9+" : cartItemCount}
-                  </span>
-                )}
-              </Link>
               <Profile />
             </ul>
           </div>
 
           {/* Mobile Hamburger Menu */}
+          <Link
+            to="/cart"
+            onClick={() => setMenuOpen(false)}
+            className="relative flex items-center mt-0 text-lg font-semibold text-gray-600 duration-200"
+          >
+            <HiOutlineShoppingCart className="ml-1 text-2xl" />
+            {cartItemCount > 0 && (
+              <span className="absolute justify-center w-8 h-8 mt-4 ml-6 text-red-500 rounded-full bottom-2">
+                {cartItemCount > 9 ? "9+" : cartItemCount}
+              </span>
+            )}
+          </Link>
           <div
             className="cursor-pointer md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}

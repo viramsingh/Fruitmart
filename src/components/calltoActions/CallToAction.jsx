@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const CallToAction = () => {
   const [email, setEmail] = useState("");
 
-  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Thank you for joining our newsletter!");
+    // alert("Thank you for joining our newsletter!");
+
+    setTimeout(() => {
+      toast.success("Thank you for joining our newsletter!");
+    }, 1000);
     setEmail("");
   };
 
-  // Function to handle input changes
   const handleInputChange = (event) => {
     setEmail(event.target.value);
   };

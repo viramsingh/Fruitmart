@@ -3,5 +3,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.spinner {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba(2, 0, 36, 1),
+    rgba(201, 67, 18, 0.98),
+    rgba(0, 212, 255, 1),
+    rgba(131, 58, 180, 1),
+    rgba(253, 194, 29, 1),
+    rgba(252, 176, 69, 1)
+  );
+  mask: radial-gradient(farthest-side, #0000 40%, #000 41%);
+  -webkit-mask: radial-gradient(farthest-side, #0000 40%, #000 41%);
+  animation: spinner-d3o0rx 1s infinite linear;
+}
 
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
 
+.spinner::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+
+@keyframes spinner-d3o0rx {
+  100% {
+    transform: rotate(1turn);
+  }
+}

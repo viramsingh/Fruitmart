@@ -1,17 +1,16 @@
 import React from "react";
-import fruits from "../data/fruits"; // Import fruits data
-import SearchBar from "../components/SearchBar/SearchBar"; // Import SearchBar component
+import fruits from "../data/fruits";
+import SearchBar from "../components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Shop = ({ cart, setCart }) => {
-  const [search, setSearch] = useState(""); // Search query state
-  const [filteredFruits, setFilteredFruits] = useState(fruits); // Filtered fruits state
-  const [currentPage, setCurrentPage] = useState(1); // Current page for pagination
-  const fruitsPerPage = 9; // Number of fruits per page
+  const [search, setSearch] = useState("");
+  const [filteredFruits, setFilteredFruits] = useState(fruits);
+  const [currentPage, setCurrentPage] = useState(1);
+  const fruitsPerPage = 9;
 
-  // Filtering fruits based on search query
   useEffect(() => {
     const filtered = fruits.filter((fruit) =>
       fruit.name.toLowerCase().includes(search.toLowerCase())
@@ -19,33 +18,53 @@ const Shop = ({ cart, setCart }) => {
     setFilteredFruits(filtered);
   }, [search]);
 
-  // Add to cart function
-  const handleOnClick = (e, fruit) => {
-    e.preventDefault();
-    setCart((prevCart) => [...prevCart, fruit]);
-    // toast.error(`${fruit.name} Added to Cart`);
-    // toast.custom(customToast());
-    const loadingtoast = () => {
-      const loadingToast = toast.loading("Waiting...");
-      setTimeout(() => {
-        toast.dismiss(loadingToast);
-        toast.success(`${fruit.name} added in cart`);
-      }, 1000);
-    };
-    loadingtoast();
-    // toast.success(`${fruit.name} Added to Cart`);
-    // toast.custom(loadingtoast());
-    // `${fruit.name} Added to Cart`;
-  };
+  // const handleOnClick = (e, fruit) => {
+  //   e.preventDefault();
+  //   setCart((prevCart) => [...prevCart, fruit]);
+  //   // toast.error(`${fruit.name} Added to Cart`);
+  //   // toast.custom(customToast());
+  //   const loadingtoast = () => {
+  //     const loadingToast = toast.loading("Waiting...");
+  //     setTimeout(() => {
+  //       toast.dismiss(loadingToast);
+  //       toast.success(`${fruit.name} added in cart`);
+  //     }, 1000);
+  //   };
+  //   loadingtoast();
+  //   // toast.success(`${fruit.name} Added to Cart`);
+  //   // toast.custom(loadingtoast());
+  //   // `${fruit.name} Added to Cart`;
+  // };
 
   // const customToast = () => {
   //   return <div className="bg-red-600">Viram Singh</div>;
   // };
 
-  // Total pages for pagination
+  const handleOnClick = (e, fruit) => {
+    e.preventDefault();
+    setCart((prevCart) => {
+      const existingItemIndex = prevCart.findIndex(
+        (item) => item.id === fruit.id
+      );
+      if (existingItemIndex !== -1) {
+        toast.error(`${fruit.name} is already in your cart.`);
+        return prevCart;
+      } else {
+        const loadingtoast = () => {
+          const loadingToast = toast.loading("Waiting...");
+          setTimeout(() => {
+            toast.dismiss(loadingToast);
+            toast.success(`${fruit.name} added to cart`);
+          }, 1000);
+        };
+        loadingtoast();
+        return [...prevCart, { ...fruit, quantity: 1 }];
+      }
+    });
+  };
+
   const totalPages = Math.ceil(filteredFruits.length / fruitsPerPage);
 
-  // Current fruits to display on the page
   const currentFruits = filteredFruits.slice(
     (currentPage - 1) * fruitsPerPage,
     currentPage * fruitsPerPage
@@ -60,12 +79,23 @@ const Shop = ({ cart, setCart }) => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
 
-  // const { id } = useParams();
-  // const fruit = fruits.find((fruit) => fruit.id === id);
+  const navigate = useNavigate();
 
-  // if (!item) {
-  //   return <h2>Item not found</h2>;
-  // }
+  const handleImageClick = (id) => {
+    const loadingtoast = () => {
+      setTimeout(() => {});
+      const loadingToast = toast.loading("Please wait, redirecting...");
+      setTimeout(() => {
+        toast.dismiss(loadingToast);
+        toast.success("Successfully redirected");
+      }, 1000);
+    };
+    loadingtoast();
+
+    setTimeout(() => {
+      navigate(`/fruiteDeatails/${id}`);
+    }, 1000);
+  };
 
   return (
     <div className="container px-4 py-8 mx-auto">
@@ -73,22 +103,24 @@ const Shop = ({ cart, setCart }) => {
         Welcome to the Fruit Shop
       </h2>
 
-      {/* Search bar component */}
       <SearchBar search={search} setSearch={setSearch} />
 
-      {/* Fruit list display */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {currentFruits.length > 0 ? (
           currentFruits.map((fruit) => (
             <div
+              onClick={() => handlefruitClick(fruit.id)}
               key={fruit.id}
               className="overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-lg"
             >
-              <img
-                src={fruit.imageUrl}
-                alt={fruit.name}
-                className="object-fill w-full h-48"
-              />
+              <div>
+                <img
+                  onClick={() => handleImageClick(fruit.id)}
+                  src={fruit.imageUrl}
+                  alt={fruit.name}
+                  className="object-fill w-full h-48"
+                />
+              </div>
               <div className="p-4">
                 <h2 className="mb-2 text-xl font-semibold">{fruit.name}</h2>
                 <p className="text-gray-600">{fruit.description}</p>

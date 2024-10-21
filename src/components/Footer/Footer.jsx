@@ -13,14 +13,13 @@ const Footer = () => {
     <footer className="py-8 text-white bg-gray-800">
       <div className="container px-4 mx-auto">
         <div className="flex flex-col justify-between lg:flex-row">
-          {/* Logo & Description */}
           <div className="flex flex-col gap-3 mb-6 lg:w-1/4 lg:mb-0">
             <div className="flex items-center gap-2 text-2xl font-bold uppercase ">
               <p className="text-primary">Fruit</p>
               <p className="text-secondary">Mart</p>
               <FaLeaf className="text-green-500" />
             </div>
-            {/* <img src="" alt="FruitMart Logo" className="h-16 mb-4" /> */}
+
             <p className="text-sm font-averia">
               FruitMart is your one-stop shop for the freshest and finest
               quality fruits. We pride ourselves on delivering the best products
@@ -54,11 +53,6 @@ const Footer = () => {
                   FAQs
                 </Link>
               </li>
-              {/* <li className="mb-2">
-                <a href="/privacy" className="hover:text-primary">
-                  Privacy Policy
-                </a>
-              </li> */}
             </ul>
           </div>
 

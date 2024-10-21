@@ -3,15 +3,12 @@ import HeroImage from "../../assets/heroimage/heroImg.jpg";
 import HeroImage1 from "../../assets/heroimage/heroimg2.jpg";
 import HeroImag3 from "../../assets/heroimage/heroimg3.jpg";
 import { Link } from "react-router-dom";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// Import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const HeroSection = () => {
